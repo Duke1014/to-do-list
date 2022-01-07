@@ -56,7 +56,6 @@ export default function SignUpForm({ setUser, setLogin, setSignup, setError }) {
                     <input type="submit"></input>
                 </label>
             </form>
-            <h2>Already signed up? Log in here:</h2>
         </div>
     )
 }
