@@ -8,7 +8,6 @@ import LogOutButton from './LogOutButton'
 export default function Home() {
 
     const [user, setUser] = useState()
-    const [login, setLogin] = useState()
     const [signup, setSignup] = useState()
     const [error, setError] = useState()
 
@@ -44,12 +43,12 @@ export default function Home() {
         </> : <>
             {signup ? <>
                 <h3>Welcome! Sign up here!</h3>
-                <SignUpForm setUser={setUser} setError={setError} setSignup={setSignup} setLogin={setLogin} />
+                <SignUpForm setUser={setUser} setError={setError} setSignup={setSignup} />
                 <h3>Already signed up? Log in here:</h3>
                 <button onClick={hideSignUp}>Log In!</button>
             </> : <> 
                 <h3>Welcome! Log in here!</h3>
-                <LogInForm setUser={setUser} setError={setError} setSignup={setSignup} setLogin={setLogin}/>
+                <LogInForm setUser={setUser} setError={setError} setSignup={setSignup} />
                 <h3>Not signed up yet? Click here!</h3>
                 <button onClick={showSignUp}>Sign up!</button>
             </>}

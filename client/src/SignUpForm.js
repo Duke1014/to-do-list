@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function SignUpForm({ setUser, setLogin, setSignup, setError }) {
+export default function SignUpForm({ setUser, setSignup, setError }) {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -20,7 +20,6 @@ export default function SignUpForm({ setUser, setLogin, setSignup, setError }) {
             if (r.ok) {
                 console.log(r)
                 setUser(true)
-                setLogin(false)
                 setSignup(false)
                 setError(`Signup successful!`)
             } else {
