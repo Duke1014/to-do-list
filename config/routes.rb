@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # resources :
   resources :users
-  
+  resources :todos
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  # TODOS
+  get "/me/todos", to: "todos#user_todos"
 
 
 
