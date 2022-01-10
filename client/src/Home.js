@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import SignUpForm from './SignUpForm'
 import LogInForm from './LogInForm'
 import LogOutButton from './LogOutButton'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
 
@@ -34,9 +35,7 @@ export default function Home() {
 
         {user ? <>
             <div>
-                {/* <h3><Link to="/soundboard" className="soundboard" user={user}>Soundboard</Link></h3>
-                <h3><Link to="/soundboard-creation" className="soundboard-creation">Make A Sound</Link></h3>
-                <h3><Link to="/user-soundboard" className="user-soundboard">User Soundboard</Link></h3> */}
+                <h3><Link to="/my-todos" className="my-todos" user={user}>My Todos</Link></h3>
             </div>
             <br/>
             <LogOutButton setUser={setUser} setError={setError}/>
