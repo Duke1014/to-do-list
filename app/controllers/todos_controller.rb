@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-    rescue_from ActiveRecord::RecordInvalid, with :render_unprocessable_entity
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
     before_action :authorize 
 
     # GET
