@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get "/me/todos", to: "todos#user_todos"
   post "/todos", to: "todos#create"
 
+  # GROUPS
+  get "/me/groups", to: "groups#user_groups"
+  get "/groups", to: "groups#index"
 
 
 end
