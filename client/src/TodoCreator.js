@@ -9,7 +9,7 @@ export default function TodoCreator() {
         fetch("/todos", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({content: content, is_done: false})
+            body: JSON.stringify({content: content})
         }).then((r) => {
             console.log(r)
         })
