@@ -5,6 +5,7 @@ import Home from './Home';
 import MyTodos from './MyTodos';
 import MyGroups from './MyGroups';
 import GroupList from './GroupList';
+import GroupCreator from './GroupCreator';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/my-todos" element={ <MyTodos /> } />
         <Route path="/my-groups" element={ <MyGroups /> } />
         <Route path="/group-list" element={ <GroupList /> } />
+        <Route path="/group-creator" element={ <GroupCreator /> } />
       </Routes>
     </BrowserRouter>
   )

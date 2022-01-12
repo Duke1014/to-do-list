@@ -21,7 +21,7 @@ export default function MyGroups() {
                     ))}
                 </div>
             ) : <>
-
+                You have no groups.
             </>}
         </div>
     )

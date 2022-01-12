@@ -3,7 +3,9 @@ class GroupsController < ApplicationController
     before_action :authorize
 
     def create
-
+        user = User.find_by(id: session[:user_id])
+        group = user.groups.create!(group_params)
+        render json: group, status: :created
     end
 
     def show

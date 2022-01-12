@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   # GROUPS
   get "/me/groups", to: "groups#user_groups"
   get "/groups", to: "groups#index"
+  post "/groups", to: "groups#create"
 
 
 end
