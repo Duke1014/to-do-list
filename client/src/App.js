@@ -6,6 +6,8 @@ import MyTodos from './MyTodos';
 import MyGroups from './MyGroups';
 import GroupList from './GroupList';
 import GroupCreator from './GroupCreator';
+import GroupHome from './GroupHome';
+import CategoryList from './CategoryList';
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
         <Route path="/my-groups" element={ <MyGroups /> } />
         <Route path="/group-list" element={ <GroupList /> } />
         <Route path="/group-creator" element={ <GroupCreator /> } />
+        <Route path="/group-home" element={ <GroupHome /> } />
+        <Route path="/category-list" element={ <CategoryList /> }/>
       </Routes>
     </BrowserRouter>
   )

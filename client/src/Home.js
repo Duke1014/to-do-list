@@ -39,6 +39,7 @@ export default function Home() {
                 <h3><Link to="/my-groups" className="my-groups" user={user}>My Groups</Link></h3>
                 <h3><Link to="/group-list" className="group-list" user={user}>List of Groups</Link></h3>
                 <h3><Link to="/group-creator" className='group-creator' user={user}>Make a Group</Link></h3>
+                <h3><Link to="/category-list" className='category-list' user={user}>Categories</Link></h3>
             </div>
             <br/>
             <LogOutButton setUser={setUser} setError={setError}/>

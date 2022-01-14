@@ -24,5 +24,10 @@ Rails.application.routes.draw do
   get "/groups", to: "groups#index"
   post "/groups", to: "groups#create"
 
+  # CATEGORIES
+  get "/categories", to: "categories#index"
+  post "/categories", to: "categories#create"
+  
+
 
 end

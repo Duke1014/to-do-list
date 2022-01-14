@@ -8,6 +8,11 @@ class GroupsController < ApplicationController
         render json: group, status: :created
     end
 
+    def index
+        groups = Group.all
+        render json: groups
+    end
+
     def show
 
     end

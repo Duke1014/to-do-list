@@ -15,6 +15,7 @@ export default function GroupCreator() {
         }).then((r) => {
             if (r.ok) {
                 setGroupError("Group saved successfully!")
+                console.log(r)
             } else {
                 setGroupError("Error!")
                 console.log(r)

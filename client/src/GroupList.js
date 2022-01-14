@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function GroupList() {
 
@@ -11,12 +12,12 @@ export default function GroupList() {
     }, [])
 
     return (
-        <div>
-         {groups.map((group) => (
-            <div key={group.id}>
-                {group.name}
-            </div>
-         ))}   
-        </div>
+        <div className='group'>
+            {groups.map((group) => (
+                <div key={group.id}>
+                    <Link to="/group-home">{group.group_name}</Link>
+                </div>
+            ))}
+        </div>  
     )
 }
