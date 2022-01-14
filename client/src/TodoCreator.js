@@ -9,6 +9,7 @@ export default function TodoCreator({ setError }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setError("")
         fetch("/todos", {
             method: "POST",
             headers: {"Content-Type": "application/json"},

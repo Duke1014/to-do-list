@@ -20,7 +20,7 @@ export default function MyTodos() {
                 <div className='user-todos'>
                     {todos.map((todo) => (
                         <div key={todo.id}>
-                            <Todo key={todo.id} id={todo.id} />
+                            <Todo key={todo.id} id={todo.id} content={todo.content} />
                         </div>
                     ))}
                 </div>
@@ -28,6 +28,8 @@ export default function MyTodos() {
                 You have no to-dos.
             </> }
             <TodoCreator setError={setError} />
+            <br/><br/>
+            {error}
         </div>
     )
 }

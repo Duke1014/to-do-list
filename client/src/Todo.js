@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Todo() {
+export default function Todo({ content, id }) {
     return (
-        <div>
-            I am a to-do, part of a to-do list
+        <div id={id}>
+            {content}
         </div>
     )
 }
