@@ -1,17 +1,24 @@
 import React, { useState } from 'react'
 
-export default function TodoCreator() {
+import CategoryDropdown from './CategoryDropdown'
+
+export default function TodoCreator({ setError }) {
 
     const [content, setContent] = useState("")
+    const [selectedCategoryId, setSelectedCategoryId] = useState()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch("/todos", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({content: content})
+            body: JSON.stringify({content: content, category_id: selectedCategoryId, is_done: false})
         }).then((r) => {
-            console.log(r)
+            if (r.ok) {
+                setError("To-Do Successfully Added!")
+            } else {
+                setError("invalid")
+            }
         })
     }
 
@@ -26,6 +33,7 @@ export default function TodoCreator() {
                         onChange={e => setContent(e.target.value)}
                     />
                 </label>
+                <CategoryDropdown setSelectedCategoryId={setSelectedCategoryId} />
                 <button type='submit'>+</button>
             </form>
         </div>

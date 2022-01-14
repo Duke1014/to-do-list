@@ -6,14 +6,13 @@ import TodoCreator from './TodoCreator'
 export default function MyTodos() {
 
     const [todos, setTodos] = useState([])
+    const [error, setError] = useState("")
 
     useEffect(() => {
         fetch("/me/todos")
         .then((r) => r.json())
         .then(setTodos)
-    }, [])
-
-    
+    }, [error])
 
     return (
         <div>
@@ -21,14 +20,14 @@ export default function MyTodos() {
                 <div className='user-todos'>
                     {todos.map((todo) => (
                         <div key={todo.id}>
-                            <Todo />
+                            <Todo key={todo.id} id={todo.id} />
                         </div>
                     ))}
                 </div>
             ) : <>
                 You have no to-dos.
             </> }
-            <TodoCreator />
+            <TodoCreator setError={setError} />
         </div>
     )
 }
