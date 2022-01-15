@@ -17,6 +17,15 @@ class TodosController < ApplicationController
     end
 
     # PATCH
+    def update
+        todo = Todo.find_by(id: params[:id])
+        if todo
+            todo.update(todo_params)
+            render json: todo
+        else
+            render json: { error: "Todo not found" }, status: :not_found
+        end
+    end
 
     # DELETE
 

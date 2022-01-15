@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # TODOS
   get "/me/todos", to: "todos#user_todos"
   post "/todos", to: "todos#create"
+  patch "/todos/:id", to: "todos#update"
 
   # GROUPS
   get "/me/groups", to: "groups#user_groups"

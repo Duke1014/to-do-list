@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import CategoryForm from './CategoryForm'
 
@@ -25,6 +26,8 @@ export default function CategoryList() {
             <br/>
             <CategoryForm setError={setError} />
             <br/>
+            <button><Link to="/" className="back-button">Back</Link></button>
+            <br/><br/>
             {error}
         </div>
     )
