@@ -7,3 +7,11 @@ body {
 .completed {
   text-decoration: line-through;
 }
+
+.to-do-form{
+  width: 15%;
+}
+
+.category-select {
+  width: 15%
+}

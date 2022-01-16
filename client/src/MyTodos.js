@@ -36,7 +36,7 @@ export default function MyTodos() {
                 You have no to-dos.
             </> }
             <br/><br/>
-            <TodoCreator setError={setError} />
+            <TodoCreator className="todo-creator" setError={setError} />
             <br/>
             <button><Link to="/" className="back-button">Back</Link></button>
             <br/><br/>

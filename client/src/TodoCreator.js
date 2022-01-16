@@ -31,6 +31,7 @@ export default function TodoCreator({ setError }) {
                         type="text" 
                         name="content" 
                         value={content}
+                        className='to-do-form'
                         onChange={e => setContent(e.target.value)}
                     />
                 </label>
