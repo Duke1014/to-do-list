@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Todo from './Todo'
 import TodoCheckBox from './TodoCheckBox'
 import TodoCreator from './TodoCreator'
+import TodoDelete from './TodoDelete'
 
 export default function MyTodos() {
 
@@ -19,24 +20,30 @@ export default function MyTodos() {
     return (
         <div>
             {todos.length > 0 ? (
-                <div className='user-todos'>
+                <table className='user-todos'>
                     {todos.map((todo) => (
-                        <div key={todo.id}>
-                            <TodoCheckBox 
-                                // key={todo.id} 
-                                id={todo.id}
-                                setError={setError}
-                                is_done={todo.is_done}
-                                category_id={todo.category_id}
-                                content={todo.content}
-                            />
-                            <Todo 
-                                key={todo.id} 
-                                content={todo.content}
-                            />
-                        </div>
+                        <tr>
+                            <td key={todo.id}>
+                                <TodoCheckBox 
+                                    // key={todo.id} 
+                                    id={todo.id}
+                                    setError={setError}
+                                    is_done={todo.is_done}
+                                    category_id={todo.category_id}
+                                    content={todo.content}
+                                />
+                                <Todo 
+                                    key={todo.id} 
+                                    content={todo.content}
+                                />
+                                <TodoDelete 
+                                    id={todo.id}
+                                    setError={setError}
+                                />
+                            </td>
+                        </tr>
                     ))}
-                </div>
+                </table>
             ) : <>
                 You have no to-dos.
             </> }

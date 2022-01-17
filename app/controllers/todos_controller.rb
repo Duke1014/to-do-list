@@ -28,6 +28,11 @@ class TodosController < ApplicationController
     end
 
     # DELETE
+    def destroy
+        todo = Todo.find_by(id: params[:id])
+        todo.destroy
+        head :no_content
+    end
 
     private
 
