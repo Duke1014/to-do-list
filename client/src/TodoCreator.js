@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 
 import CategoryDropdown from './CategoryDropdown'
 
-export default function TodoCreator({ setError }) {
+export default function TodoCreator() {
 
     const [content, setContent] = useState("")
     const [selectedCategoryId, setSelectedCategoryId] = useState()
+    const [error, setError] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -38,6 +39,8 @@ export default function TodoCreator({ setError }) {
                 <CategoryDropdown setSelectedCategoryId={setSelectedCategoryId} />
                 <button className="to-do-submit" type='submit'>+</button>
             </form>
+            <br/><br/><br/><br/>
+            <div className='error'>{error}</div>
         </div>
     )
 }

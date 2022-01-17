@@ -8,7 +8,6 @@ import TodoDelete from './TodoDelete'
 export default function MyTodos() {
 
     const [todos, setTodos] = useState([])
-    const [error, setError] = useState("")
     
     useEffect(() => {
         fetch("/me/todos")
@@ -17,13 +16,11 @@ export default function MyTodos() {
     }, [todos])
 
     const todoCheck = (id, content, category_id, boolean) => {
-        setError("---------------------------")
-        console.log(boolean)
         fetch(`/todos/${id}`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({is_done: boolean, content: content, category_id: category_id })
-        }).then(setError("To do checked!"))
+        })
     }
 
     return (
@@ -46,7 +43,6 @@ export default function MyTodos() {
                                 <td>
                                     <TodoDelete 
                                         id={todo.id}
-                                        setError={setError}
                                     />
                                 </td>
                             </tr>
@@ -57,11 +53,10 @@ export default function MyTodos() {
                 You have no to-dos.
             </> }
             <br/><br/>
-            <TodoCreator className="todo-creator" setError={setError} />
+            <TodoCreator className="todo-creator" />
             <br/><br/><br/><br/><br/>
             <button><Link to="/" className="back-button">Back</Link></button>
             <br/><br/>
-            {error}
         </div>
     )
 }

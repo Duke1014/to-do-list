@@ -4,9 +4,6 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-  /*  */
-  /* background-color: blue; */
-
 .to-do-form {
   width: 40%;
   /* background-color: blue; */
@@ -31,4 +28,8 @@ body {
 } */
 .todo {
   float: left;
+}
+
+.error {
+  text-align: left;
 }
