@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import Todo from './Todo'
+import TodoCheckBox from './TodoCheckBox'
 import TodoCreator from './TodoCreator'
 
 export default function MyTodos() {
@@ -21,13 +22,17 @@ export default function MyTodos() {
                 <div className='user-todos'>
                     {todos.map((todo) => (
                         <div key={todo.id}>
-                            <Todo 
-                                key={todo.id} 
-                                id={todo.id} 
-                                content={todo.content} 
+                            <TodoCheckBox 
+                                // key={todo.id} 
+                                id={todo.id}
                                 setError={setError}
                                 is_done={todo.is_done}
                                 category_id={todo.category_id}
+                                content={todo.content}
+                            />
+                            <Todo 
+                                key={todo.id} 
+                                content={todo.content}
                             />
                         </div>
                     ))}
