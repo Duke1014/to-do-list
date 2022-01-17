@@ -15,33 +15,39 @@ export default function MyTodos() {
         fetch("/me/todos")
         .then((r) => r.json())
         .then(setTodos)
-    }, [error])
+    }, [todos])
 
     return (
         <div>
             {todos.length > 0 ? (
                 <table className='user-todos'>
                     {todos.map((todo) => (
-                        <tr>
-                            <td key={todo.id}>
-                                <TodoCheckBox 
-                                    // key={todo.id} 
-                                    id={todo.id}
-                                    setError={setError}
-                                    is_done={todo.is_done}
-                                    category_id={todo.category_id}
-                                    content={todo.content}
-                                />
-                                <Todo 
-                                    key={todo.id} 
-                                    content={todo.content}
-                                />
-                                <TodoDelete 
-                                    id={todo.id}
-                                    setError={setError}
-                                />
-                            </td>
-                        </tr>
+                        <tbody key={todo.id}>
+                            <tr key={todo.id} >
+                                <td>
+                                    <TodoCheckBox 
+                                        // key={todo.id} 
+                                        id={todo.id}
+                                        setError={setError}
+                                        is_done={todo.is_done}
+                                        category_id={todo.category_id}
+                                        content={todo.content}
+                                    />
+                                </td>
+                                <td>
+                                    <Todo 
+                                        key={todo.id} 
+                                        content={todo.content}
+                                    />
+                                </td>
+                                <td>
+                                    <TodoDelete 
+                                        id={todo.id}
+                                        setError={setError}
+                                    />
+                                </td>
+                            </tr>
+                        </tbody>
                     ))}
                 </table>
             ) : <>
@@ -49,7 +55,7 @@ export default function MyTodos() {
             </> }
             <br/><br/>
             <TodoCreator className="todo-creator" setError={setError} />
-            <br/>
+            <br/><br/><br/><br/><br/>
             <button><Link to="/" className="back-button">Back</Link></button>
             <br/><br/>
             {error}

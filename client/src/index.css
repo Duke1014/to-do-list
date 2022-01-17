@@ -4,15 +4,27 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-.completed {
-  text-decoration: line-through;
+.complete {
+  /* text-decoration: line-through; */
+  background-color: blue;
 }
 
-.to-do-form{
-  width: 15%;
+.to-do-form {
+  width: 40%;
+  /* background-color: blue; */
+  float: left;
+  padding: 10px;
 }
 
-.category-select {
-  width: 15%;
+/* .to-do-creator {
+  width: 100%;
+  float: left;
+} */
+
+.to-do-submit {
+  float: left;
 }
 
+.to-do-content {
+  padding: 5px;
+}

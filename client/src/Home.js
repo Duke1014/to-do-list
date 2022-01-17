@@ -5,7 +5,6 @@ import SignUpForm from './SignUpForm'
 import LogInForm from './LogInForm'
 import LogOutButton from './LogOutButton'
 
-
 export default function Home() {
 
     const [user, setUser] = useState()

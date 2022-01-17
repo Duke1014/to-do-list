@@ -22,15 +22,13 @@ Rails.application.routes.draw do
   patch "/todos/:id", to: "todos#update"
   delete "/todos/:id", to: "todos#destroy"
 
-  # GROUPS
-  get "/me/groups", to: "groups#user_groups"
-  get "/groups", to: "groups#index"
-  post "/groups", to: "groups#create"
+  # # GROUPS
+  # get "/me/groups", to: "groups#user_groups"
+  # get "/groups", to: "groups#index"
+  # post "/groups", to: "groups#create"
 
   # CATEGORIES
   get "/categories", to: "categories#index"
   post "/categories", to: "categories#create"
-  
-
 
 end

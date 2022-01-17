@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Todo({ content, is_done }) {
+export default function Todo({ content }) {
 
     return (
         <div>
-            <div className={is_done ? "completed" : ""}>
+            <div>
                 <div className="to-do-content">{content}</div>
             </div>
         </div>

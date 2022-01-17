@@ -11,7 +11,6 @@ export default function CategoryDropdown({ setSelectedCategoryId }) {
     }, [])
 
     const handleSelect = (e) => {
-        console.log(e)
         setSelectedCategoryId(e.target.value)
     }
 

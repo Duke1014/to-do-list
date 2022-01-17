@@ -2,21 +2,11 @@ import React, { useEffect, useState } from 'react'
 
 export default function TodoCheckBox({ id, is_done, setError, error, content, category_id }) {
 
-    const [boolean, setBoolean] = useState()
-
-    useEffect((is_done) => {
-        if (is_done) {
-            setBoolean(true)
-            console.log("TRUE")
-        } else {
-            setBoolean(false)
-            console.log("FALSE")
-        }
-    }, [error])
-
+    const [boolean, setBoolean] = useState(false)
+    
     const handleClick = (e) => {
         e.preventDefault()
-        setError("")
+        setError("---------------------------")
         fetch(`/todos/${id}`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},
@@ -28,14 +18,9 @@ export default function TodoCheckBox({ id, is_done, setError, error, content, ca
         <div>
             <button 
                 type="checkbox" 
-                className='check-box' 
+                className={boolean ? "complete" : ""}
                 onClick={handleClick}
-            >{boolean ? (
-               <>CHECK</> 
-            ) : (
-                <>☐</>
-            )}    
-            </button>
+            >☐</button>
         </div>
     )
 }
