@@ -4,10 +4,8 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-.complete {
-  /* text-decoration: line-through; */
-  background-color: blue;
-}
+  /*  */
+  /* background-color: blue; */
 
 .to-do-form {
   width: 40%;
@@ -16,15 +14,21 @@ body {
   padding: 10px;
 }
 
-/* .to-do-creator {
-  width: 100%;
-  float: left;
-} */
-
 .to-do-submit {
   float: left;
 }
 
 .to-do-content {
   padding: 5px;
+  float: left;
+}
+
+/* .complete, .incomplete {
+  float: left;
+}
+.complete {
+  text-decoration: line-through;
+} */
+.todo {
+  float: left;
 }

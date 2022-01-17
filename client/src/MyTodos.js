@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import Todo from './Todo'
-import TodoCheckBox from './TodoCheckBox'
 import TodoCreator from './TodoCreator'
 import TodoDelete from './TodoDelete'
 
@@ -10,12 +9,22 @@ export default function MyTodos() {
 
     const [todos, setTodos] = useState([])
     const [error, setError] = useState("")
-
+    
     useEffect(() => {
         fetch("/me/todos")
         .then((r) => r.json())
         .then(setTodos)
     }, [todos])
+
+    const todoCheck = (id, content, category_id, boolean) => {
+        setError("---------------------------")
+        console.log(boolean)
+        fetch(`/todos/${id}`, {
+            method: "PATCH",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({is_done: boolean, content: content, category_id: category_id })
+        }).then(setError("To do checked!"))
+    }
 
     return (
         <div>
@@ -25,19 +34,13 @@ export default function MyTodos() {
                         <tbody key={todo.id}>
                             <tr key={todo.id} >
                                 <td>
-                                    <TodoCheckBox 
-                                        // key={todo.id} 
+                                    <Todo 
+                                        key={todo.id} 
                                         id={todo.id}
-                                        setError={setError}
                                         is_done={todo.is_done}
                                         category_id={todo.category_id}
                                         content={todo.content}
-                                    />
-                                </td>
-                                <td>
-                                    <Todo 
-                                        key={todo.id} 
-                                        content={todo.content}
+                                        todoCheck={todoCheck}
                                     />
                                 </td>
                                 <td>
