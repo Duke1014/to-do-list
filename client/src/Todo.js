@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function Todo({ id, todoCheck, is_done, content, category_id }) {
+export default function Todo({ id, category, todoCheck, is_done, content, category_id }) {
 
     const [boolean, setBoolean] = useState(is_done)
 
@@ -19,7 +19,8 @@ export default function Todo({ id, todoCheck, is_done, content, category_id }) {
                         onChange={handleCheck}
                     ></input>
                 </label>
-                {content}
+                <span>{content}  -  </span>
+                <span>{category}</span>
             </div>
         </div>
     )

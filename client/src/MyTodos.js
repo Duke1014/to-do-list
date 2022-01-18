@@ -38,6 +38,7 @@ export default function MyTodos() {
                                         category_id={todo.category_id}
                                         content={todo.content}
                                         todoCheck={todoCheck}
+                                        category={todo.category.category_name}
                                     />
                                 </td>
                                 <td>
