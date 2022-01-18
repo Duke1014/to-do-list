@@ -26,18 +26,20 @@ export default function TodoCreator() {
 
     return (
         <div>
-            <form className='to-do-form' onSubmit={handleSubmit}>
-                <label>To-do:
-                    <input 
-                        type="text" 
-                        name="content" 
-                        value={content}
-                        className='to-do-creator'
-                        onChange={e => setContent(e.target.value)}
-                    />
-                </label>
-                <CategoryDropdown setSelectedCategoryId={setSelectedCategoryId} />
-                <button className="to-do-submit" type='submit'>+</button>
+            <form onSubmit={handleSubmit}>
+                <div className='to-do-form'>
+                    <label className='to-do-creator'>To-do:
+                        <input 
+                            type="text" 
+                            name="content" 
+                            value={content}
+                            className='to-do-creator'
+                            onChange={e => setContent(e.target.value)}
+                        />
+                    </label>
+                    <CategoryDropdown setSelectedCategoryId={setSelectedCategoryId} />
+                    <button className="to-do-submit" type='submit'>+</button>
+                </div>
             </form>
             <br/><br/><br/><br/>
             <div className='error'>{error}</div>

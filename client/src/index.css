@@ -2,34 +2,13 @@ body {
   text-align: center;
   padding: 10px;
   font-family: 'Roboto Condensed', sans-serif;
+  background-image: url('./img/notepad_plain_paper.jpg'); 
+  /* background-size: auto; */
+  /* background-position: center; */
+  padding-top: 15%;
 }
 
-.to-do-form {
-  width: 40%;
-  /* background-color: blue; */
-  float: left;
-  padding: 10px;
-}
-
-.to-do-submit {
-  float: left;
-}
-
-.to-do-content {
-  padding: 5px;
-  float: left;
-}
-
-/* .complete, .incomplete {
-  float: left;
-}
-.complete {
-  text-decoration: line-through;
-} */
 .todo {
   float: left;
-}
-
-.error {
-  text-align: left;
+  padding-left: 40px;
 }
