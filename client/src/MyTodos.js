@@ -9,12 +9,13 @@ import TodoDelete from './TodoDelete'
 export default function MyTodos() {
 
     const [todos, setTodos] = useState([])
+    const [error, setError] = useState("")
     
     useEffect(() => {
         fetch("/me/todos")
         .then((r) => r.json())
         .then(setTodos)
-    }, [])
+    }, [error])
 
     const todoCheck = (id, content, category_id, boolean) => {
         fetch(`/todos/${id}`, {
@@ -45,6 +46,8 @@ export default function MyTodos() {
                                 <td>
                                     <TodoDelete 
                                         id={todo.id}
+                                        error={error}
+                                        setError={setError}
                                     />
                                 </td>
                             </tr>
@@ -55,7 +58,7 @@ export default function MyTodos() {
                 You have no to-dos.
             </> }
             <br/><br/>
-            <TodoCreator className="todo-creator" />
+            <TodoCreator error={error} setError={setError} className="todo-creator" />
             <br/><br/><br/><br/><br/>
             <button><Link to="/" className="back-button">Back</Link></button>
             <br/><br/>

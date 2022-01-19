@@ -5,11 +5,7 @@ class TodosController < ApplicationController
     # GET
     def user_todos
         user = User.find_by(id: session[:user_id])
-        if params[:category_id]
-            todos = user.todos.find_by(category_id: params[:category_id])
-        else
-            todos = user.todos    
-        end
+        todos = user.todos
         render json: todos
     end
 
@@ -49,7 +45,7 @@ class TodosController < ApplicationController
     end
 
     def todo_params
-        params.permit(:id, :content, :is_done, :category_id, category_attributes: [:category_name])
+        params.require(:todo).permit(:id, :content, :is_done, :category_id, category_attributes: [:category_name])
     end
 
 end
