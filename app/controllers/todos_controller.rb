@@ -5,7 +5,11 @@ class TodosController < ApplicationController
     # GET
     def user_todos
         user = User.find_by(id: session[:user_id])
-        todos = user.todos
+        if params[:category_id]
+            todos = user.todos.find_by(category_id: params[:category_id])
+        else
+            todos = user.todos    
+        end
         render json: todos
     end
 
