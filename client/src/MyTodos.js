@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Todo from './Todo'
 import TodoCreator from './TodoCreator'
 import TodoDelete from './TodoDelete'
+import TodoByCategory from './TodoByCategory'
 
 export default function MyTodos() {
 
@@ -13,7 +14,7 @@ export default function MyTodos() {
         fetch("/me/todos")
         .then((r) => r.json())
         .then(setTodos)
-    }, [todos])
+    }, [])
 
     const todoCheck = (id, content, category_id, boolean) => {
         fetch(`/todos/${id}`, {
@@ -25,6 +26,7 @@ export default function MyTodos() {
 
     return (
         <div>
+            <TodoByCategory />
             {todos.length > 0 ? (
                 <table className='user-todos'>
                     {todos.map((todo) => (

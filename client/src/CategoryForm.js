@@ -14,6 +14,7 @@ export default function CategoryForm( { setError } ) {
         }).then((r) => {
             if (r.ok) {
                 setError("Category saved successfully!")
+                console.log(r)
             } else {
                 setError("Invalid Category Name")
             }
