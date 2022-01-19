@@ -5,24 +5,24 @@ import Todo from './Todo'
 import TodoCreator from './TodoCreator'
 import TodoDelete from './TodoDelete'
 
-
 export default function MyTodos() {
 
     const [todos, setTodos] = useState([])
     const [error, setError] = useState("")
+    const [ping, setPing] = useState(0)
     
     useEffect(() => {
         fetch("/me/todos")
         .then((r) => r.json())
         .then(setTodos)
-    }, [error])
+    }, [error, ping])
 
-    const todoCheck = (id, content, category_id, boolean) => {
+    const todoCheck = (id, content, category_id, is_done) => {
         fetch(`/todos/${id}`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({is_done: boolean, content: content, category_id: category_id })
-        })
+            body: JSON.stringify({is_done: !is_done, content: content, category_id: category_id })
+        }).then(setPing(ping + 1))
     }
 
     return (
@@ -41,6 +41,7 @@ export default function MyTodos() {
                                         content={todo.content}
                                         todoCheck={todoCheck}
                                         category={todo.category.category_name}
+                                        setError={setError}
                                     />
                                 </td>
                                 <td>

@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-export default function Todo({ id, category, todoCheck, is_done, content, category_id }) {
-
-    const [boolean, setBoolean] = useState(is_done)
+export default function Todo({ id, category, todoCheck, is_done, content, category_id, setError }) {
 
     const handleCheck = () => {
-        setBoolean(!is_done)
-        todoCheck(id, content, category_id, boolean)
+        setError("")
+        todoCheck(id, content, category_id, is_done)
+        setError("Check!")
     }
 
     return (
