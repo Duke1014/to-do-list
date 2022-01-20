@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function GroupCreator() {
 
@@ -38,6 +39,8 @@ export default function GroupCreator() {
             </form>
             <br/>
             {groupError}
+            <br/><br/><br/><br/><br/>
+            <button><Link to="/" className="back-button">Back</Link></button>
         </div>
     )
 }

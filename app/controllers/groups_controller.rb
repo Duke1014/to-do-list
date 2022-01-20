@@ -2,19 +2,10 @@ class GroupsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
     before_action :authorize
 
-    def create
-        user = User.find_by(id: session[:user_id])
-        group = user.groups.create!(group_params)
-        render json: group, status: :created
-    end
-
+    # GET
     def index
         groups = Group.all
         render json: groups
-    end
-
-    def show
-
     end
 
     def user_groups
@@ -22,6 +13,33 @@ class GroupsController < ApplicationController
         groups = user.groups
         render json: groups
     end
+
+    # POST
+    def create
+        user = User.find_by(id: session[:user_id])
+        group = user.groups.create!(group_params)
+        render json: group, status: :created
+    end
+
+    # PATCH
+    def add_user_to_group
+        user = User.find_by(id: session[:user_id])
+        group = Group.find_by(id: params[:id])
+        if group
+            if user.groups.find_by(id: params[:id]) === group
+                render json: { error: "Group already assigned to User" }, status: :method_not_allowed
+            else
+                user.groups<<(group)
+            end
+        else
+            render json: { error: "Group Not Found" }, status: :not_found
+        end
+    end
+
+    # DELETE
+
+
+
 
     private
 
