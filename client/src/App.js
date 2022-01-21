@@ -18,7 +18,7 @@ export default function App() {
         <Route path="/my-groups" element={ <MyGroups /> } />
         <Route path="/group-list" element={ <GroupList /> } />
         <Route path="/group-creator" element={ <GroupCreator /> } />
-        <Route path="/group-home" element={ <GroupHome /> } />
+        <Route path="/group-home/:id" element={ <GroupHome /> } />
         <Route path="/category-list" element={ <CategoryList /> }/>
       </Routes>
     </BrowserRouter>

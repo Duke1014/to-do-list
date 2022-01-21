@@ -17,7 +17,11 @@ export default function MyGroups() {
                 <div className='group'>
                     {groups.map((group) => (
                         <div key={group.id}>
-                            {group.group_name}
+                            <Link 
+                                to={`/group-home/${group.id}`}
+                                id={group.id}
+                                name={group.group_name}
+                            >{group.group_name}</Link>
                         </div>
                     ))}
                 </div>

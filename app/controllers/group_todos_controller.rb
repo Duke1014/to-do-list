@@ -1,24 +1,40 @@
+require 'pry'
+
 class GroupTodosController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
     before_action :authorize 
 
     # GET
-    # def user_todos
-    #     user = User.find_by(id: session[:user_id])
-    #     todos = user.todos
-    #     render json: todos
-    # end
+    def show_todos
+        group = Group.find_by(id: params[:id])
+        todos = group.group_todos
+        render json: todos
+    end
 
     # POST
     def create
-        user = User.find_by(id: session[:user_id])
-        group_todo = user.group_todos.create!(group_todo_params)
-        render json: todo, status: :created
+        group = Group.find_by(id: params[:group_id])
+        group_todo = group.group_todos.create!(group_todo_params)
+        render json: group_todo, status: :created
     end
 
     # PATCH
+    def update
+        group_todo = GroupTodo.find_by(id: params[:id])
+        if group_todo
+            group_todo.update(group_todo_params)
+            render json: group_todo
+        else
+            render json: { error: "Todo not found" }, status: :not_found
+        end
+    end
 
     # DELETE
+    def destroy
+        group_todo = GroupTodo.find_by(id: params[:id])
+        group_todo.destroy
+        head :no_content
+    end
 
     private
 
@@ -31,7 +47,7 @@ class GroupTodosController < ApplicationController
     end
 
     def group_todo_params
-        params.permit(:id, :content, :is_done, :category_id, :group_id)
+        params.require(:group_todo).permit(:content, :is_done, :category_id, :group_id, category_attributes: [:category_name])
     end
 
 end

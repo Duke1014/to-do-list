@@ -3,8 +3,8 @@ body {
   padding: 10px;
   font-family: 'Roboto Condensed', sans-serif;
   background-image: url('./img/notepad_plain_paper.jpg'); 
-  /* background-size: auto; */
-  /* background-position: center; */
+  background-size: fill;
+  background-position: center;
   padding-top: 15%;
 }
 

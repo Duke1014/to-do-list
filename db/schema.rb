@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_12_225038) do
+ActiveRecord::Schema.define(version: 2022_01_20_200755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2022_01_12_225038) do
   create_table "group_todos", force: :cascade do |t|
     t.string "content"
     t.boolean "is_done"
-    t.integer "user_id"
     t.integer "category_id"
     t.integer "group_id"
     t.datetime "created_at", precision: 6, null: false
