@@ -18,8 +18,7 @@ export default function Todo({ id, category, todoCheck, is_done, content, catego
                         onChange={handleCheck}
                     ></input>
                 </label>
-                <span>{content}  -  </span>
-                <span>{category}</span>
+                <span>{content}  -  {category}</span>
             </div>
         </div>
     )

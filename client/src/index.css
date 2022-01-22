@@ -2,13 +2,13 @@ body {
   text-align: center;
   padding: 10px;
   font-family: 'Roboto Condensed', sans-serif;
-  background-image: url('./img/notepad_plain_paper.jpg'); 
-  background-size: fill;
-  background-position: center;
+  background-image: url('./img/paper.jpg'); 
+  background-size:cover;
+  background-position: initial;
   padding-top: 15%;
 }
 
 .todo {
   float: left;
-  padding-left: 40px;
+  padding-left: 200px;
 }
