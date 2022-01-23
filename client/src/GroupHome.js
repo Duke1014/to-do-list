@@ -14,19 +14,25 @@ export default function GroupHome() {
     const [error, setError] = useState("")
     const [ping, setPing] = useState(0)
 
-    useEffect(() => {
-        fetch(`/group/${id}/todos/`)
-        .then((r) => r.json())
-        .then(setGroupTodos)
-    }, [error, ping])
-
-    const todoCheck = (id, content, category_id, is_done) => {
+    const todoCheck = (id, e) => {
         fetch(`/group-todos/${id}`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({is_done: !is_done, content: content, category_id: category_id })
+            body: JSON.stringify({is_done: e.target.checked})
         }).then(setPing(ping + 1))
+        .then(setError("!"))
     }
+
+    useEffect(() => {
+        let test = true;
+        if (test) {
+            fetch(`/group/${id}/todos/`)
+            .then((r) => r.json())
+            .then(setGroupTodos)
+            .then(console.log("USEEFFECT FIRED"))
+        }
+        return () => test = false;
+    }, [ping])
 
     return (
         <div>
@@ -46,6 +52,8 @@ export default function GroupHome() {
                                         todoCheck={todoCheck}
                                         category={todo.category.category_name}
                                         setError={setError}
+                                        setPing={setPing}
+                                        ping={ping}
                                     />
                                 </td>
                                 <td>
