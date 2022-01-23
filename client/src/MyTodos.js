@@ -10,20 +10,20 @@ export default function MyTodos() {
     const [todos, setTodos] = useState([])
     const [error, setError] = useState("")
     const [ping, setPing] = useState(0)
-    
+
+    const todoCheck = (id, e) => {
+        fetch(`/todos/${id}`, {
+            method: "PATCH",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({is_done: e.target.checked})
+        }).then(setPing(ping + 1))
+    }
+
     useEffect(() => {
         fetch("/me/todos")
         .then((r) => r.json())
         .then(setTodos)
-    }, [error, ping])
-
-    const todoCheck = (id, content, category_id, is_done) => {
-        fetch(`/todos/${id}`, {
-            method: "PATCH",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({is_done: !is_done, content: content, category_id: category_id })
-        }).then(setPing(ping + 1))
-    }
+    }, [ping])
 
     return (
         <div>
@@ -37,17 +37,14 @@ export default function MyTodos() {
                                         key={todo.id} 
                                         id={todo.id}
                                         is_done={todo.is_done}
-                                        category_id={todo.category_id}
                                         content={todo.content}
                                         todoCheck={todoCheck}
                                         category={todo.category.category_name}
-                                        setError={setError}
                                     />
                                 </td>
                                 <td>
                                     <TodoDelete 
                                         id={todo.id}
-                                        error={error}
                                         setError={setError}
                                     />
                                 </td>

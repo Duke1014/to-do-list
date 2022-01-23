@@ -1,3 +1,5 @@
+# require 'pry'
+
 class TodosController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
     before_action :authorize 
@@ -19,6 +21,7 @@ class TodosController < ApplicationController
     # PATCH
     def update
         todo = Todo.find_by(id: params[:id])
+        # binding.pry
         if todo
             todo.update(todo_params)
             render json: todo

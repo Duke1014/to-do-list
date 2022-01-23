@@ -1,11 +1,10 @@
 import React from 'react'
 
-export default function Todo({ id, category, todoCheck, is_done, content, category_id, setError }) {
+export default function Todo({ id, category, todoCheck, is_done, content }) {
 
-    const handleCheck = () => {
-        setError("")
-        todoCheck(id, content, category_id, is_done)
-        setError("Check!")
+    const handleCheck = (e) => {
+        e.preventDefault()
+        todoCheck(id, e)
     }
 
     return (

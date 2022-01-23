@@ -16,7 +16,7 @@ export default function CategoryForm( { setError } ) {
                 setError("Category saved successfully!")
                 console.log(r)
             } else {
-                setError("Invalid Category Name")
+                setError("Invalid category name. Make sure the category doesn't already exist!")
             }
         })
     }

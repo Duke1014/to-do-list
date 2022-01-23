@@ -20,7 +20,7 @@ export default function CategoryDropdown({ setSelectedCategoryId, setCategoryNam
             <select name="categories" className="category-select" onChange={handleSelect}>
                 <option value="">--New Category--</option>
                 {categories.map((category) => (
-                    <option id={category.id} key={category.id} value={category.id}>{category.category_name}</option>
+                    <option key={category.id} value={category.id}>{category.category_name}</option>
                 ))}
             </select>
             <br/>

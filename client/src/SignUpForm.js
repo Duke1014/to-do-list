@@ -18,14 +18,12 @@ export default function SignUpForm({ setUser, setSignup, setError }) {
             })
         }).then((r) => { 
             if (r.ok) {
-                console.log(r)
                 setUser(true)
                 setSignup(false)
-                setError(`Signup successful!`)
+                setError(`Signup successful! Welcome, ${username}`)
             } else {
                 setError("Error: Something went wrong. Please try again.")
             }
-            
         })
     }    
 

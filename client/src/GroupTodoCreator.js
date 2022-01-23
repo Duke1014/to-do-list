@@ -11,7 +11,6 @@ export default function GroupTodoCreator({ error, setError, group_id }) {
     const handleSubmit = (e) => {
         e.preventDefault()
         setError("")
-        // console.log(e)
         let newTodo
         if (selectedCategoryId) {
             newTodo = {content: content, category_id: selectedCategoryId, is_done: false, group_id: group_id}
@@ -28,13 +27,10 @@ export default function GroupTodoCreator({ error, setError, group_id }) {
             if (r.ok) {
                 setError("To-Do Successfully Added!")
             } else {
-                setError("invalid")
+                setError("Invalid To-Do. Be sure to assign a category to the To-Do, and it must not be empty.")
             }
         })
     }
-
-
-    
 
     return (
         <div>

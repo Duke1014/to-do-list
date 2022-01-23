@@ -24,14 +24,10 @@ export default function GroupHome() {
     }
 
     useEffect(() => {
-        let test = true;
-        if (test) {
-            fetch(`/group/${id}/todos/`)
-            .then((r) => r.json())
-            .then(setGroupTodos)
-            .then(console.log("USEEFFECT FIRED"))
-        }
-        return () => test = false;
+        fetch(`/group/${id}/todos/`)
+        .then((r) => r.json())
+        .then(setGroupTodos)
+        .then(console.log("USEEFFECT"))
     }, [ping])
 
     return (

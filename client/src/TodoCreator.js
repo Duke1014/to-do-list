@@ -11,33 +11,25 @@ export default function TodoCreator({ error, setError }) {
     const handleSubmit = (e) => {
         e.preventDefault()
         setError("")
-        console.log(e)
+        let newTodo
         if (selectedCategoryId) {
-            fetch("/todos", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({content: content, category_id: selectedCategoryId, is_done: false})
-            }).then((r) => {
-                if (r.ok) {
-                    setError("To-Do Successfully Added!")
-                } else {
-                    setError("invalid")
-                }
-            })
+            newTodo = {content: content, category_id: selectedCategoryId, is_done: false}
         } else {
-            fetch("/todos", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({content: content, category_id: selectedCategoryId, is_done: false, category_attributes: {category_name: categoryName } })
-            }).then((r) => {
-                if (r.ok) {
-                    setError("To-Do Successfully Added!")
-                } else {
-                    setError("invalid")
-                }
-            })
+            newTodo = {content: content, category_id: selectedCategoryId, is_done: false, category_attributes: {category_name: categoryName } }
         }
-
+        let configObject = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newTodo)
+        }
+        fetch("/todos", configObject)
+        .then((r) => {
+            if (r.ok) {
+                setError("To-Do Successfully Added!")
+            } else {
+                setError("Invalid To-Do. Be sure to assign a category to the To-Do, and it must not be empty.")
+            }
+        })
     }
 
     return (
