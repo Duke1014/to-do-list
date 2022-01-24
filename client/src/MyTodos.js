@@ -9,21 +9,23 @@ export default function MyTodos() {
 
     const [todos, setTodos] = useState([])
     const [error, setError] = useState("")
-    const [ping, setPing] = useState(0)
 
     const todoCheck = (id, e) => {
         fetch(`/todos/${id}`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({is_done: e.target.checked})
-        }).then(setPing(ping + 1))
+            body: JSON.stringify({is_done: !e.target.checked})
+        }).then(() => {
+            const newTodos = todos.map(t => id === t.id ? {...t, is_done: !e.target.checked} : t)
+            setTodos(newTodos)
+        })
     }
 
     useEffect(() => {
         fetch("/me/todos")
         .then((r) => r.json())
         .then(setTodos)
-    }, [ping])
+    }, [])
 
     return (
         <div>
@@ -46,6 +48,8 @@ export default function MyTodos() {
                                     <TodoDelete 
                                         id={todo.id}
                                         setError={setError}
+                                        setTodos={setTodos}
+                                        todos={todos}
                                     />
                                 </td>
                             </tr>
@@ -56,7 +60,12 @@ export default function MyTodos() {
                 You have no to-dos.
             </> }
             <br/><br/>
-            <TodoCreator error={error} setError={setError} className="todo-creator" />
+            <TodoCreator 
+                error={error} 
+                setError={setError}
+                todos={todos}
+                setTodos={setTodos}
+            />
             <br/><br/><br/><br/><br/>
             <button><Link to="/" className="back-button">Back</Link></button>
             <br/><br/>

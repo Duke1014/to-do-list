@@ -1,14 +1,17 @@
 import React from 'react'
 
-export default function TodoDelete({ id, setError }) {
+export default function TodoDelete({ id, setError, setTodos, todos }) {
 
     const handleDelete = () => {
-        setError("")
         fetch(`/todos/${id}`, {
             method: "DELETE",
             headers: {'Content-Type': 'application/json'},
             body: null
-        }).then(setError("To do deleted!"))
+        }).then( () =>  {
+            setError("To do deleted!")
+            const newTodos = todos.filter(t => id !== t.id)
+            setTodos(newTodos)
+        })
     }
 
     return (

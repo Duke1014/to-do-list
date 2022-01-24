@@ -7,14 +7,15 @@ import LogOutButton from './LogOutButton'
 
 export default function Home() {
 
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(false) // change to loggedIn
     const [signup, setSignup] = useState()
     const [error, setError] = useState()
 
+    // look up Router Props
     useEffect(() => {
         fetch("/me").then((r) => {
             if (r.ok) {
-                r.json().then(setUser(true));
+                r.json().then( () => setUser(true));
             }
         })
     }, []);
@@ -29,9 +30,7 @@ export default function Home() {
     return (
         <div>
             <h1 className='front-page'>Let's To-Do This!</h1>
-            
             <h3>{error}</h3>
-
         {user ? <>
             <div>
                 <h3><Link to="/my-todos" className="my-todos">My Todos</Link></h3>

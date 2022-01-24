@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import CategoryDropdown from './CategoryDropdown'
 
-export default function TodoCreator({ error, setError }) {
+export default function TodoCreator({ error, setError, todos, setTodos }) {
 
     const [content, setContent] = useState("")
     const [selectedCategoryId, setSelectedCategoryId] = useState()
@@ -26,6 +26,11 @@ export default function TodoCreator({ error, setError }) {
         .then((r) => {
             if (r.ok) {
                 setError("To-Do Successfully Added!")
+                r.json()
+                .then(result => {
+                    todos.push(result)
+                    setTodos(todos)
+                })
             } else {
                 setError("Invalid To-Do. Be sure to assign a category to the To-Do, and it must not be empty.")
             }
