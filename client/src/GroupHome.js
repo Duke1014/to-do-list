@@ -18,9 +18,16 @@ export default function GroupHome() {
         fetch(`/group-todos/${id}`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({is_done: !e.target.checked})
-        }).then(() => {
-            const newGroupTodos = groupTodos.map(t => id === t.id ? {...t, is_done: !e.target.checked} : t)
+            body: JSON.stringify({is_done: e.target.checked})
+        }).then((r) => r.json())
+        .then((todo) => {
+            let boolean
+            if (todo.is_done) {
+                boolean = true
+            } else {
+                boolean = false
+            }
+            const newGroupTodos = groupTodos.map(t => id === t.id ? {...t, is_done: boolean} : t)
             setGroupTodos(newGroupTodos)
         })
     }

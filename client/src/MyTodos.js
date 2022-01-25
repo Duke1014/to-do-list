@@ -16,9 +16,16 @@ export default function MyTodos() {
         fetch(`/todos/${id}`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({is_done: !e.target.checked})
-        }).then(() => {
-            const newTodos = todos.map(t => id === t.id ? {...t, is_done: !e.target.checked} : t)
+            body: JSON.stringify({is_done: e.target.checked})
+        }).then((r) => r.json())
+        .then((todo) => {
+            let boolean
+            if (todo.is_done) {
+                boolean = true
+            } else {
+                boolean = false
+            }
+            const newTodos = todos.map(t => id === t.id ? {...t, is_done: boolean} : t)
             setTodos(newTodos)
         })
     }

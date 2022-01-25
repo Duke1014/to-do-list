@@ -4,6 +4,7 @@ export default function Todo({ id, category, todoCheck, is_done, content }) {
 
     const handleCheck = (e) => {
         e.preventDefault()
+        // debugger
         todoCheck(id, e)
     }
 
@@ -14,7 +15,7 @@ export default function Todo({ id, category, todoCheck, is_done, content }) {
                     <input 
                         type="checkbox"
                         checked={is_done}
-                        onChange={handleCheck}
+                        onClick={handleCheck}
                     ></input>
                 </label>
                 <span>{content}  -  {category}</span>
