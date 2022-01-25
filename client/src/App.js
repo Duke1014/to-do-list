@@ -9,18 +9,22 @@ import GroupCreator from './GroupCreator';
 import GroupHome from './GroupHome';
 import CategoryList from './CategoryList';
 
+import { UserProvider } from './context/user';
+
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/my-todos" element={ <MyTodos /> } />
-        <Route path="/my-groups" element={ <MyGroups /> } />
-        <Route path="/group-list" element={ <GroupList /> } />
-        <Route path="/group-creator" element={ <GroupCreator /> } />
-        <Route path="/group-home/:id" element={ <GroupHome /> } />
-        <Route path="/category-list" element={ <CategoryList /> }/>
-      </Routes>
-    </BrowserRouter>
+    <UserProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={ <Home /> } />
+          <Route path="/my-todos" element={ <MyTodos /> } />
+          <Route path="/my-groups" element={ <MyGroups /> } />
+          <Route path="/group-list" element={ <GroupList /> } />
+          <Route path="/group-creator" element={ <GroupCreator /> } />
+          <Route path="/group-home/:id" element={ <GroupHome /> } />
+          <Route path="/category-list" element={ <CategoryList /> }/>
+        </Routes>
+      </BrowserRouter>
+    </UserProvider>
   )
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import CategoryDropdown from './CategoryDropdown'
 
-export default function GroupTodoCreator({ error, setError, group_id }) {
+export default function GroupTodoCreator({ error, setError, group_id, setGroupTodos, groupTodos }) {
 
     const [content, setContent] = useState("")
     const [selectedCategoryId, setSelectedCategoryId] = useState()
@@ -26,6 +26,11 @@ export default function GroupTodoCreator({ error, setError, group_id }) {
         .then((r) => {
             if (r.ok) {
                 setError("To-Do Successfully Added!")
+                r.json()
+                .then(result => {
+                    groupTodos.push(result)
+                    setGroupTodos(groupTodos)
+                })
             } else {
                 setError("Invalid To-Do. Be sure to assign a category to the To-Do, and it must not be empty.")
             }

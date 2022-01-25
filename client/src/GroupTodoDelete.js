@@ -1,16 +1,17 @@
-// currently unused 1/23/2022
-
 import React from 'react'
 
-export default function TodoDelete({ id, setError }) {
+export default function TodoDelete({ id, setError, setGroupTodos, groupTodos }) {
 
     const handleDelete = () => {
-        setError("")
         fetch(`/group-todos/${id}`, {
             method: "DELETE",
             headers: {'Content-Type': 'application/json'},
             body: null
-        }).then(setError("To do deleted!"))
+        }).then(() => {
+            setError("To do deleted!")
+            const newGroupTodos = groupTodos.filter(t => id !== t.id)
+            setGroupTodos(newGroupTodos)
+        })
     }
 
     return (

@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { UserContext } from './context/user'
 
-export default function Login({ setUser, setError, setSignup }) {
+export default function Login({ setError, setSignup }) {
     
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const {login} = useContext(UserContext)
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -16,9 +18,12 @@ export default function Login({ setUser, setError, setSignup }) {
             })
         }).then((r) => {
             if (r.ok) {
-                setUser(true)
-                setError(`Welcome, ${username}!`)
+                setError(`Login successful!`)
                 setSignup(false)
+                r.json()
+                .then(data => {
+                    login(data)
+                })
             } else {
                 setError("Error: Username or password invalid")
             }

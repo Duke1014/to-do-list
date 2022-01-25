@@ -1,14 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { UserContext } from './context/user'
 
-export default function Logout({ setUser, setError }) {
+export default function Logout({ setError }) {
 
-    const logout = () => {
+    const {logout} = useContext(UserContext)
+
+    const handleClick = () => {
         fetch("/logout", {
             method: "DELETE"
         }).then((r) => {
             if (r.ok) {
-                setUser(false)
-                setError("Logout successful")
+                logout()
+                setError("Logout successful!")
             } else {
                 setError("Error: User Not Found")
             }
@@ -17,7 +20,7 @@ export default function Logout({ setUser, setError }) {
 
     return (
         <div>
-            <button onClick={logout}>Log Out</button>
+            <button onClick={handleClick}>Log Out</button>
         </div>
     )
 }

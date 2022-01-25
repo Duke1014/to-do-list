@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 import SignUpForm from './SignUpForm'
 import LogInForm from './LogInForm'
 import LogOutButton from './LogOutButton'
+import { UserContext } from './context/user'
 
 export default function Home() {
 
-    const [user, setUser] = useState(false) // change to loggedIn
+    const { user, loggedIn } = useContext(UserContext)
     const [signup, setSignup] = useState()
     const [error, setError] = useState()
-
-    // look up Router Props
-    useEffect(() => {
-        fetch("/me").then((r) => {
-            if (r.ok) {
-                r.json().then( () => setUser(true));
-            }
-        })
-    }, []);
 
     const showSignUp = () => {
         setSignup(true)
@@ -30,9 +22,11 @@ export default function Home() {
     return (
         <div>
             <h1 className='front-page'>Let's To-Do This!</h1>
+            
             <h3>{error}</h3>
-        {user ? <>
+        {loggedIn ? <>
             <div>
+                <h2 className='welcome'>Welcome, {user.username}!</h2>
                 <h3><Link to="/my-todos" className="my-todos">My Todos</Link></h3>
                 <h3><Link to="/category-list" className='category-list'>Categories</Link></h3>
                 <h3><Link to="/my-groups" className="my-groups" user={user}>My Groups</Link></h3>
@@ -40,16 +34,16 @@ export default function Home() {
                 <h3><Link to="/group-creator" className='group-creator' user={user}>Make a Group</Link></h3>
             </div>
             <br/>
-            <LogOutButton className="log-out-button" setUser={setUser} setError={setError}/>
+            <LogOutButton className="log-out-button" setError={setError}/>
         </> : <>
             {signup ? <>
                 <h3>Welcome! Sign up here!</h3>
-                <SignUpForm className="sign-up-form" setUser={setUser} setError={setError} setSignup={setSignup} />
+                <SignUpForm className="sign-up-form" setError={setError} setSignup={setSignup} />
                 <h3>Already signed up? Log in here:</h3>
                 <button onClick={hideSignUp}>Log In!</button>
             </> : <> 
                 <h3>Welcome! Log in here!</h3>
-                <LogInForm className="log-in-form" setUser={setUser} setError={setError} setSignup={setSignup} />
+                <LogInForm className="log-in-form" setError={setError} setSignup={setSignup} />
                 <h3>Not signed up yet? Click here!</h3>
                 <button onClick={showSignUp}>Sign up!</button>
             </>}

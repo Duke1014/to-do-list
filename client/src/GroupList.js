@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { UserContext } from './context/user'
 
 export default function GroupList() {
 
     const [groups, setGroups] = useState([])
     const [error, setError] = useState("")
+    const { loggedIn } = useContext(UserContext)
 
     useEffect(() => {
         fetch("/groups")
@@ -30,13 +32,17 @@ export default function GroupList() {
 
     return (
         <div className='group'>
-            {groups.map((group) => (
-                <div key={group.id}>
-                    {group.group_name} - <button id={group.id} name={group.group_name} onClick={handleClick}>Join Group</button>
-                </div>
-            ))}
-            <br/>
-            {error}
+            {loggedIn ? <>
+                {groups.map((group) => (
+                    <div key={group.id}>
+                        {group.group_name} - <button id={group.id} name={group.group_name} onClick={handleClick}>Join Group</button>
+                    </div>
+                ))}
+                <br/>
+                {error}
+            </> : <>
+                <h2>Unauthorized access. Please log in to continue.</h2>
+            </>}
             <br/><br/><br/><br/><br/>
             <button><Link to="/" className="back-button">Back</Link></button>
         </div>  

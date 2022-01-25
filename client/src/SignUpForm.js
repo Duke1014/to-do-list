@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { UserContext } from './context/user'
 
-export default function SignUpForm({ setUser, setSignup, setError }) {
+export default function SignUpForm({ setSignup, setError }) {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const {signup} = useContext(UserContext)
 
     const handleSignup = (e) => {
         e.preventDefault()
@@ -18,9 +20,12 @@ export default function SignUpForm({ setUser, setSignup, setError }) {
             })
         }).then((r) => { 
             if (r.ok) {
-                setUser(true)
                 setSignup(false)
-                setError(`Signup successful! Welcome, ${username}`)
+                setError(`Signup successful!`)
+                r.json()
+                .then(data => {
+                    signup(data)
+                })
             } else {
                 setError("Error: Something went wrong. Please try again.")
             }
