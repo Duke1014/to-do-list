@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             render json: user, status: :created
         else
-            # byebug
             render json: { errors: ["Not Authorized"] }, status: :unauthorized
         end
     end

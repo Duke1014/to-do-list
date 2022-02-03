@@ -5,17 +5,14 @@ export default function Login({ setError, setSignup }) {
     
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const {login} = useContext(UserContext)
+    const { login } = useContext(UserContext)
 
     const handleLogin = (e) => {
         e.preventDefault()
         fetch("/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                username,
-                password
-            })
+            body: JSON.stringify({ username, password })
         }).then((r) => {
             if (r.ok) {
                 setError(`Login successful!`)

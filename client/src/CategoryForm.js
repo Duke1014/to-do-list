@@ -21,8 +21,6 @@ export default function CategoryForm( { setError } ) {
         })
     }
 
-
-
     return (
         <div>
             <form onSubmit={handleSubmit}>

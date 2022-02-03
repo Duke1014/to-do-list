@@ -37,8 +37,6 @@ export default function MyTodos() {
     }, [])
 
     return (
-
-
         <div>
             {loggedIn ? <>
                 {todos.length > 0 ? (

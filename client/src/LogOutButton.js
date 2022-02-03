@@ -3,7 +3,7 @@ import { UserContext } from './context/user'
 
 export default function Logout({ setError }) {
 
-    const {logout} = useContext(UserContext)
+    const { logout } = useContext(UserContext)
 
     const handleClick = () => {
         fetch("/logout", {

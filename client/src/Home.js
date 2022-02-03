@@ -22,33 +22,31 @@ export default function Home() {
     return (
         <div>
             <h1 className='front-page'>Let's To-Do This!</h1>
-            
             <h3>{error}</h3>
-        {loggedIn ? <>
-            <div>
-                <h2 className='welcome'>Welcome, {user.username}!</h2>
-                <h3><Link to="/my-todos" className="my-todos">My Todos</Link></h3>
-                <h3><Link to="/category-list" className='category-list'>Categories</Link></h3>
-                <h3><Link to="/my-groups" className="my-groups" user={user}>My Groups</Link></h3>
-                <h3><Link to="/group-list" className="group-list" user={user}>List of Groups</Link></h3>
-                <h3><Link to="/group-creator" className='group-creator' user={user}>Make a Group</Link></h3>
-            </div>
-            <br/>
-            <LogOutButton className="log-out-button" setError={setError}/>
-        </> : <>
-            {signup ? <>
-                <h3>Welcome! Sign up here!</h3>
-                <SignUpForm className="sign-up-form" setError={setError} setSignup={setSignup} />
-                <h3>Already signed up? Log in here:</h3>
-                <button onClick={hideSignUp}>Log In!</button>
-            </> : <> 
-                <h3>Welcome! Log in here!</h3>
-                <LogInForm className="log-in-form" setError={setError} setSignup={setSignup} />
-                <h3>Not signed up yet? Click here!</h3>
-                <button onClick={showSignUp}>Sign up!</button>
+            {loggedIn ? <>
+                <div>
+                    <h2 className='welcome'>Welcome, {user.username}!</h2>
+                    <h3><Link to="/my-todos" className="my-todos">My Todos</Link></h3>
+                    <h3><Link to="/category-list" className='category-list'>Categories</Link></h3>
+                    <h3><Link to="/my-groups" className="my-groups" user={user}>My Groups</Link></h3>
+                    <h3><Link to="/group-list" className="group-list" user={user}>List of Groups</Link></h3>
+                    <h3><Link to="/group-creator" className='group-creator' user={user}>Make a Group</Link></h3>
+                </div>
+                <br/>
+                <LogOutButton className="log-out-button" setError={setError}/>
+            </> : <>
+                {signup ? <>
+                    <h3>Welcome! Sign up here!</h3>
+                    <SignUpForm className="sign-up-form" setError={setError} setSignup={setSignup} />
+                    <h3>Already signed up? Log in here:</h3>
+                    <button onClick={hideSignUp}>Log In!</button>
+                </> : <> 
+                    <h3>Welcome! Log in here!</h3>
+                    <LogInForm className="log-in-form" setError={setError} setSignup={setSignup} />
+                    <h3>Not signed up yet? Click here!</h3>
+                    <button onClick={showSignUp}>Sign up!</button>
+                </>}
             </>}
-        </>}
-
-    </div>
+        </div>
     )
 }

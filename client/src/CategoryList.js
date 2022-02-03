@@ -28,9 +28,7 @@ export default function CategoryList() {
                 </div>
                 <br/>
                 <CategoryForm setError={setError} />
-                <br/>
-                
-                <br/><br/>
+                <br/><br/><br/>
                 {error}
             </> : <>
                 <h2>Unauthorized access. Please log in to continue.</h2>

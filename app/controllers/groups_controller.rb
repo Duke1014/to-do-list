@@ -36,11 +36,6 @@ class GroupsController < ApplicationController
         end
     end
 
-    # DELETE
-
-
-
-
     private
 
     def render_unprocessable_entity(invalid)

@@ -2,6 +2,8 @@
 
 Let's To-do This! is a personalized task manager for individuals and groups alike.
 
+Using a React front-end and a Rails back-end, these to-do lists update instantly and save 
+
 ## Installation
 
 Fork and clone the following repo into your terminal: https://github.com/Duke1014/to-do-list
@@ -30,4 +32,4 @@ npm start --prefix client
 
 ## License
 
-LICENSE.md
+Copyright (c) 2022 Brett "Duke" Norsworthy II
