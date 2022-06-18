@@ -32,7 +32,7 @@ export default function GroupHome() {
         })
     }
 
-    useEffect(() => {
+    useEffect((id) => {
         fetch(`/group/${id}/todos/`)
         .then((r) => r.json())
         .then(setGroupTodos)
