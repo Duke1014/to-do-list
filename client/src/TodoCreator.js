@@ -28,8 +28,8 @@ export default function TodoCreator({ error, setError, todos, setTodos }) {
                 setError("To-Do Successfully Added!")
                 r.json()
                 .then(result => {
-                    todos.push(result)
-                    setTodos(todos)
+                    let newList = [...todos, result]
+                    setTodos(newList)
                 })
             } else {
                 setError("Invalid To-Do. Be sure to assign a category to the To-Do, and it must not be empty.")
