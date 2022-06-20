@@ -28,8 +28,8 @@ export default function GroupTodoCreator({ error, setError, group_id, setGroupTo
                 setError("To-Do Successfully Added!")
                 r.json()
                 .then(result => {
-                    groupTodos.push(result)
-                    setGroupTodos(groupTodos)
+                    let newList = [...groupTodos, result]
+                    setGroupTodos(newList)
                 })
             } else {
                 setError("Invalid To-Do. Be sure to assign a category to the To-Do, and it must not be empty.")
