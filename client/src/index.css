@@ -2,13 +2,16 @@ body {
   text-align: center;
   padding: 10px;
   font-family: 'Roboto Condensed', sans-serif;
-  background-image: url('./img/paper.jpg'); 
-  background-size:cover;
+  background-color: darkturquoise;
+  background-size: cover;
   background-position: initial;
   padding-top: 15%;
 }
 
 .todo {
-  float: left;
-  padding-left: 200px;
+  float: right;
+}
+
+.user-todos {
+  border: 1px solid;
 }
