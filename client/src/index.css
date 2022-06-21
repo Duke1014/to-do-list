@@ -12,7 +12,7 @@ body {
   float: right;
 }
 
-.user-todos {
+.user-todos, .group-todos {
   border: 1px solid;
   margin-left: auto;
   margin-right: auto;
