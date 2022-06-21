@@ -14,4 +14,6 @@ body {
 
 .user-todos {
   border: 1px solid;
+  margin-left: auto;
+  margin-right: auto;
 }
