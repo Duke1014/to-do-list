@@ -8,6 +8,7 @@ import GroupList from './GroupList';
 import GroupCreator from './GroupCreator';
 import GroupHome from './GroupHome';
 import CategoryList from './CategoryList';
+import NavBar from './NavBar';
 
 import { UserProvider } from './context/user';
 
@@ -15,6 +16,7 @@ export default function App() {
   return (
     <UserProvider>
       <BrowserRouter>
+        <NavBar />
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path="/my-todos" element={ <MyTodos /> } />
