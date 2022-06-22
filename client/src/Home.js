@@ -26,11 +26,13 @@ export default function Home() {
             {loggedIn ? <>
                 <div>
                     <h2 className='welcome'>Welcome, {user.username}!</h2>
-                    <h3><Link to="/my-todos" className="my-todos">My Todos</Link></h3>
-                    <h3><Link to="/category-list" className='category-list'>Categories</Link></h3>
-                    <h3><Link to="/my-groups" className="my-groups" user={user}>My Groups</Link></h3>
-                    <h3><Link to="/group-list" className="group-list" user={user}>List of Groups</Link></h3>
-                    <h3><Link to="/group-creator" className='group-creator' user={user}>Make a Group</Link></h3>
+                    <ul className='menu'>
+                        <li><Link to="/my-todos" className="my-todos">My Todos</Link></li>
+                        <li><Link to="/category-list" className='category-list'>Categories</Link></li>
+                        <li><Link to="/my-groups" className="my-groups" user={user}>My Groups</Link></li>
+                        <li><Link to="/group-list" className="group-list" user={user}>List of Groups</Link></li>
+                        <li><Link to="/group-creator" className='group-creator' user={user}>Make a Group</Link></li>
+                    </ul>                
                 </div>
                 <br/>
                 <LogOutButton className="log-out-button" setError={setError}/>
