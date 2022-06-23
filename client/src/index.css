@@ -19,10 +19,9 @@ body {
 }
 
 nav {
-  list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 500px;
+  width: 200px;
   border: 1px solid #555;
   float: left;
 }
@@ -30,5 +29,11 @@ nav {
 a {
   display: block;
   padding: 8px;
-  background-color: #dddddd;
+  background-color: rgba(211, 145, 22, 0.5);
+  text-align: center;
+  border: 1px solid #555;
+  color: black;
+}
+a.hover {
+  background-color: gray;
 }
