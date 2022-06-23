@@ -18,16 +18,17 @@ body {
   margin-right: auto;
 }
 
-.menu {
+nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 100px;
+  width: 500px;
   border: 1px solid #555;
+  float: left;
 }
 
-.menu li {
+a {
   display: block;
-  color: #000;
-  border-bottom: 1px solid #555;
+  padding: 8px;
+  background-color: #dddddd;
 }

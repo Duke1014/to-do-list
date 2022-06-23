@@ -6,11 +6,11 @@ export default function NavBar() {
 const { user } = useContext(UserContext)
   return (
    <nav>
-    <NavLink to="/my-todos" className="my-todos">My Todos</NavLink>
-    <NavLink to="/category-list" className='category-list'>Categories</NavLink>
-    <NavLink to="/my-groups" className="my-groups" user={user}>My Groups</NavLink>
-    <NavLink to="/group-list" className="group-list" user={user}>List of Groups</NavLink>
-    <NavLink to="/group-creator" className='group-creator' user={user}>Make a Group</NavLink>
+    <a><NavLink to="/my-todos" className="my-todos">My Todos</NavLink></a>
+    <a><NavLink to="/category-list" className='category-list'>Categories</NavLink></a>
+    <a><NavLink to="/my-groups" className="my-groups" user={user}>My Groups</NavLink></a>
+    <a><NavLink to="/group-list" className="group-list" user={user}>List of Groups</NavLink></a>
+    <a><NavLink to="/group-creator" className='group-creator' user={user}>Make a Group</NavLink></a>
    </nav>
   )
 }
