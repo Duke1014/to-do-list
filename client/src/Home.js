@@ -26,7 +26,6 @@ export default function Home() {
             {loggedIn ? <>
                 <div>
                     <h2 className='welcome'>Welcome, {user.username}!</h2>
-             
                 </div>
                 <br/>
                 <LogOutButton className="log-out-button" setError={setError}/>
