@@ -43,8 +43,6 @@ export default function GroupList() {
             </> : <>
                 <h2>Unauthorized access. Please log in to continue.</h2>
             </>}
-            <br/><br/><br/><br/><br/>
-            <button><Link to="/" className="back-button">Back</Link></button>
         </div>  
     )
 }

@@ -58,8 +58,6 @@ export default function TodoCreator({ error, setError, todos, setTodos }) {
                     <button className="to-do-submit" type='submit'>Submit</button>
                 </div>
             </form>
-            <br/><br/><br/><br/>
-            <div className='error'>{error}</div>
         </div>
     )
 }

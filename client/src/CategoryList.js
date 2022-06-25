@@ -33,7 +33,6 @@ export default function CategoryList() {
             </> : <>
                 <h2>Unauthorized access. Please log in to continue.</h2>
             </>}
-            <button><Link to="/" className="back-button">Back</Link></button>
         </div>
     )
 }
