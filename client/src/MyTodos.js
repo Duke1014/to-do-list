@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
 
 import Todo from './Todo'
 import TodoCreator from './TodoCreator'

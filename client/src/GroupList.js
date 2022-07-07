@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
 import { UserContext } from './context/user'
 
 export default function GroupList() {
