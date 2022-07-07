@@ -33,7 +33,7 @@ export default function GroupList() {
         <div className='group'>
             {loggedIn ? <>
                 {groups.map((group) => (
-                    <div key={group.id}>
+                    <div className="list-item" key={group.id}>
                         {group.group_name} - <button id={group.id} name={group.group_name} onClick={handleClick}>Join Group</button>
                     </div>
                 ))}

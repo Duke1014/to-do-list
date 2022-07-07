@@ -37,3 +37,9 @@ a {
 a.hover {
   background-color: gray;
 }
+
+.group {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
