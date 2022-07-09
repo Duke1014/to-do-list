@@ -7,6 +7,7 @@ export default function NavBar() {
 const { user, loggedIn } = useContext(UserContext)
   return (
     <nav>
+      <a><NavLink to="/" className="home-button">Home</NavLink></a>
     {loggedIn ? <>
         <a><NavLink to="/my-todos" className="my-todos">My Todos</NavLink></a>
         <a><NavLink to="/category-list" className='category-list'>Categories</NavLink></a>
@@ -14,7 +15,7 @@ const { user, loggedIn } = useContext(UserContext)
         <a><NavLink to="/group-list" className="group-list" user={user}>List of Groups</NavLink></a>
         <a><NavLink to="/group-creator" className='group-creator' user={user}>Make a Group</NavLink></a>
         <a><Logout /></a>
-    </> : <>Please sign in to use the navigation menu</>}
+    </> : <></>}
     </nav> 
   )
 }

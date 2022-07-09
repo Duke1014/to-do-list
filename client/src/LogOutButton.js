@@ -11,9 +11,8 @@ export default function Logout({ setError }) {
         }).then((r) => {
             if (r.ok) {
                 logout()
-                setError("Logout successful!")
             } else {
-                setError("Error: User Not Found")
+                return
             }
         })
     }
