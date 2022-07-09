@@ -14,7 +14,6 @@ const { user, loggedIn } = useContext(UserContext)
         <a><NavLink to="/my-groups" className="my-groups" user={user}>My Groups</NavLink></a>
         <a><NavLink to="/group-list" className="group-list" user={user}>List of Groups</NavLink></a>
         <a><NavLink to="/group-creator" className='group-creator' user={user}>Make a Group</NavLink></a>
-        <a><Logout /></a>
     </> : <></>}
     </nav> 
   )
