@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { UserContext } from './context/user'
-import Logout from './LogOutButton'
 
 export default function NavBar() {
 const { user, loggedIn } = useContext(UserContext)
