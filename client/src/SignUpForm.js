@@ -23,6 +23,7 @@ export default function SignUpForm({ setSignup, setError }) {
                     signup(data)
                 })
             } else {
+                console.log(r)
                 setError("Error: Something went wrong. Please try again.")
             }
         })

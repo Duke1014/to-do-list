@@ -23,7 +23,7 @@ nav {
   padding: 0;
   width: 200px;
   border: 1px solid #555;
-  float: left;
+  float: top;
 }
 
 a {
