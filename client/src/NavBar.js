@@ -7,6 +7,7 @@ const { user, loggedIn } = useContext(UserContext)
   return (
     <nav>
       <a><NavLink to="/" className="home-button">Home</NavLink></a>
+      <a><NavLink to="/" className="test-button">TEST</NavLink></a>
     {loggedIn ? <>
         <a><NavLink to="/my-todos" className="my-todos">My Todos</NavLink></a>
         <a><NavLink to="/category-list" className='category-list'>Categories</NavLink></a>
