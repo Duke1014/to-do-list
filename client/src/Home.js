@@ -21,7 +21,7 @@ export default function Home() {
     return (
         <div>
             <h1>Let's To-Do This!</h1>
-            <h3>{error}</h3>
+            <h3 className='error'>{error}</h3>
             {loggedIn ? <>
                 <div>
                     <h2 className='welcome'>Welcome, {user.username}!</h2>

@@ -2,10 +2,11 @@ body {
   text-align: center;
   padding: 10px;
   font-family: 'Roboto Condensed', sans-serif;
-  background-color: darkturquoise;
+  background-color: rgb(0, 0, 0);
   background-size: cover;
   background-position: initial;
   padding-top: 15%;
+  color: white;
 }
 
 .todo {
@@ -21,7 +22,7 @@ body {
 nav {
   margin: 0;
   padding: 0;
-  width: 200px;
+  width: 180px;
   border: 1px solid #555;
   float: top;
 }
@@ -46,7 +47,7 @@ a.hover {
 
 .test-button:hover {
   animation-name: test-animation;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 @keyframes test-animation {
@@ -70,4 +71,8 @@ a.hover {
   90% {transform: skew(0deg, 0deg);}
   95% {transform: skew(-20deg, -10deg);}
   100% {transform: skew(0deg, 0deg);}
+}
+
+.error {
+  color: red;
 }
