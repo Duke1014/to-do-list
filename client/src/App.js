@@ -17,6 +17,7 @@ export default function App() {
     <UserProvider>
       <BrowserRouter>
         <NavBar />
+        <br/>
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path="/my-todos" element={ <MyTodos /> } />

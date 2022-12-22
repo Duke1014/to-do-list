@@ -20,7 +20,7 @@ export default function Home() {
 
     return (
         <div>
-            <h1>Let's To-Do This!</h1>
+            {/* <h1>Let's To-Do This!</h1> */}
             <h3 className='error'>{error}</h3>
             {loggedIn ? <>
                 <div>

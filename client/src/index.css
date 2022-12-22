@@ -1,11 +1,7 @@
 body {
-  text-align: center;
-  padding: 10px;
-  font-family: 'Roboto Condensed', sans-serif;
+  /* text-align: center; */
+  /* font-family: 'Roboto Condensed', sans-serif; */
   background-color: rgb(0, 0, 0);
-  background-size: cover;
-  background-position: initial;
-  padding-top: 15%;
   color: white;
 }
 
@@ -20,23 +16,28 @@ body {
 }
 
 nav {
-  margin: 0;
-  padding: 0;
-  width: 180px;
+  width: fit-content;
   border: 1px solid #555;
-  float: top;
 }
 
-a {
+nav a {
   display: block;
-  padding: 8px;
+  float: left;
+  text-decoration: none;
+  padding: 1px;
   background-color: rgba(211, 145, 22, 0.5);
   text-align: center;
   border: 1px solid #555;
-  color: black;
+  color: white;
 }
-a.hover {
-  background-color: gray;
+
+nav a.active {
+  background-color: black;
+}
+
+nav a.hover {
+  background-color: #ddd;
+  color: black;
 }
 
 .group {

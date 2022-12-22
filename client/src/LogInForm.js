@@ -18,9 +18,7 @@ export default function Login({ setError, setSignup }) {
                 setError(`Login successful!`)
                 setSignup(false)
                 r.json()
-                .then(data => {
-                    login(data)
-                })
+                .then(data => {login(data)})
             } else {
                 setError("Error: Username or password invalid")
             }
