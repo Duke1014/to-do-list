@@ -30,7 +30,7 @@ export default function SignUpForm({ setSignup, setError }) {
     }    
 
     return (
-        <div>
+        <div className='signup-form'>
             <form onSubmit={handleSignup}>
                 <label>
                     Username: <input

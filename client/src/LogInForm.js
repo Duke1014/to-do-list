@@ -17,8 +17,7 @@ export default function Login({ setError, setSignup }) {
             if (r.ok) {
                 setError(`Login successful!`)
                 setSignup(false)
-                r.json()
-                .then(data => {login(data)})
+                r.json().then(data => {login(data)})
             } else {
                 setError("Error: Username or password invalid")
             }
@@ -26,8 +25,7 @@ export default function Login({ setError, setSignup }) {
     }
 
     return (
-        <div>
-            <br/>
+        <div className='login-form'>
             <form onSubmit={handleLogin}>
                 <label>
                     Username: <input

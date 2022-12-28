@@ -1,8 +1,26 @@
 body {
   /* text-align: center; */
   /* font-family: 'Roboto Condensed', sans-serif; */
-  background-color: rgb(0, 0, 0);
-  color: white;
+  background-color: rgb(19, 96, 205);
+}
+
+.login-form, .signup-form {
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  width: fit-content;
+  padding: 3px;
+  margin: auto;
+  background-color: rgb(27, 138, 185);
+}
+
+.login-form input, .signup-form input {
+  padding: 8px;
+  /* border: 1px solid red; */
+}
+
+.login-form input:focus, .signup-form input:focus {
+  background-color: magenta;
+  
 }
 
 .todo {
