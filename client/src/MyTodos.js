@@ -36,7 +36,7 @@ export default function MyTodos() {
     }, [])
 
     return (
-        <div>
+        <div className='my-todos'>
             {loggedIn ? <>
                 {todos.length > 0 ? (
                     <table className='user-todos'>

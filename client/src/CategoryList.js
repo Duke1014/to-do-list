@@ -16,9 +16,9 @@ export default function CategoryList() {
     }, [error])
 
     return (
-        <div>
+        <div className='category-list'>
             {loggedIn ? <>
-                <div className='category-list'>
+                <div>
                     {categories.map((category) => (
                         <div key={category.id}>
                             <div>{category.category_name}</div>

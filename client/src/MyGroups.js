@@ -14,7 +14,7 @@ export default function MyGroups() {
     }, [])
 
     return (
-        <div>
+        <div className='my-groups'>
             {loggedIn ? <>
                 {groups.length > 0 ? (
                     <div className='group'>

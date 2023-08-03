@@ -14,7 +14,7 @@ export default function Todo({ id, category, todoCheck, is_done, content }) {
                     <input 
                         type="checkbox"
                         checked={is_done}
-                        onClick={handleCheck}
+                        onChange={handleCheck}
                     ></input>
                 </label>
                 <span>{content}  -  {category}</span>

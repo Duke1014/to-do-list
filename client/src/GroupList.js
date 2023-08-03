@@ -30,7 +30,7 @@ export default function GroupList() {
     }
 
     return (
-        <div className='group'>
+        <div className='group-list'>
             {loggedIn ? <>
                 {groups.map((group) => (
                     <div className="list-item" key={group.id}>

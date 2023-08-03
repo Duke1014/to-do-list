@@ -24,7 +24,7 @@ export default function GroupCreator() {
     }
 
     return (
-        <div>
+        <div className='group-creator'>
             {loggedIn ? <>
                 <form onSubmit={handleSubmit}>
                     <label>

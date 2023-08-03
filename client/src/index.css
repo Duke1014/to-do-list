@@ -1,26 +1,53 @@
 body {
   /* text-align: center; */
-  /* font-family: 'Roboto Condensed', sans-serif; */
-  background-color: rgb(19, 96, 205);
+  margin: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  /* background-color: rgb(19, 96, 205); */
+}
+
+.home, 
+.welcome, 
+.my-todos, 
+.category-list, 
+.my-groups, 
+.group-list, 
+.group-creator,
+.group-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .login-form, .signup-form {
   border: 1px solid rgb(0, 0, 0);
   border-radius: 5px;
-  width: fit-content;
+  width: 30%;
+  min-width: 20%;
   padding: 10px;
-  margin: auto;
-  background-color: rgb(27, 138, 185);
+  background-color: rgba(211, 145, 22, 0.5);
+  position: relative;
+  align-self: center;
 }
 
 .login-form input, .signup-form input {
   padding: 6px;
   border: 1px solid black;
   border-radius: 5px;
+  background-color: rgb(216, 216, 216);
 }
 
 .login-form input:focus, .signup-form input:focus {
-  background-color: rgb(180, 180, 180);
+  background-color: rgb(255, 255, 255);
+}
+
+.my-todos, 
+.category-list, 
+.my-groups, 
+.group-list, 
+.group-creator,
+.group-home {
+  padding-top: 5%;
 }
 
 .todo {
@@ -36,6 +63,7 @@ body {
 nav {
   width: fit-content;
   border: 1px solid #555;
+  position: absolute;
 }
 
 nav a {
@@ -56,12 +84,6 @@ nav a.active {
 nav a.hover {
   background-color: #ddd;
   color: black;
-}
-
-.group {
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .test-button:hover {

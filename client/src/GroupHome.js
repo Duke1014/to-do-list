@@ -38,7 +38,7 @@ export default function GroupHome() {
     }, [id])
 
     return (
-        <div>
+        <div className='group-home'>
             {loggedIn ? <>
                 <h3>Group To-Do List</h3>
                 {groupTodos.length > 0 ? (

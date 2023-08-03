@@ -7,9 +7,8 @@ import { UserContext } from './context/user'
 
 export default function Home() {
 
-    const { user, loggedIn } = useContext(UserContext)
+    const { user, loggedIn, error, setError } = useContext(UserContext)
     const [signup, setSignup] = useState()
-    const [error, setError] = useState()
 
     const showSignUp = () => {
         setSignup(true)
@@ -19,12 +18,12 @@ export default function Home() {
     }
 
     return (
-        <div>
+        <div className='home'>
             {/* <h1>Let's To-Do This!</h1> */}
             <h3 className='error'>{error}</h3>
             {loggedIn ? <>
-                <div>
-                    <h2 className='welcome'>Welcome, {user.username}!</h2>
+                <div className='welcome'>
+                    <h2>Welcome, {user.username}!</h2>
                 </div>
                 <br/>
                 <LogOutButton className="log-out-button" setError={setError}/>
