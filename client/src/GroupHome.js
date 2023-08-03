@@ -35,7 +35,7 @@ export default function GroupHome() {
         fetch(`/group/${id}/todos/`)
         .then((r) => r.json())
         .then(setGroupTodos)
-    }, [])
+    }, [id])
 
     return (
         <div>

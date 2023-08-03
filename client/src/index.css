@@ -8,19 +8,19 @@ body {
   border: 1px solid rgb(0, 0, 0);
   border-radius: 5px;
   width: fit-content;
-  padding: 3px;
+  padding: 10px;
   margin: auto;
   background-color: rgb(27, 138, 185);
 }
 
 .login-form input, .signup-form input {
-  padding: 8px;
-  /* border: 1px solid red; */
+  padding: 6px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .login-form input:focus, .signup-form input:focus {
-  background-color: magenta;
-  
+  background-color: rgb(180, 180, 180);
 }
 
 .todo {
